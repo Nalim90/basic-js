@@ -1,32 +1,32 @@
 const { NotImplementedError } = require('../extensions/index.js');
 
 /**
- * Given an array of domains, return the object with the appearances of the DNS.
+ * Given some integer, find the maximal number you can obtain
+ * by deleting exactly one digit of the given number.
  *
- * @param {Array} domains
- * @return {Object}
+ * @param {Number} n
+ * @return {Number}
  *
  * @example
- * domains = [
- *  'code.yandex.ru',
- *  'music.yandex.ru',
- *  'yandex.ru'
- * ]
- *
- * The result should be the following:
- * {
- *   '.ru': 3,
- *   '.ru.yandex': 3,
- *   '.ru.yandex.code': 1,
- *   '.ru.yandex.music': 1,
- * }
+ * For n = 152, the output should be 52
  *
  */
-function getDNSStats(/* domains */) {
-  throw new NotImplementedError('Not implemented');
+function deleteDigit(n) {
+  /* throw new NotImplementedError('Not implemented'); */
   // remove line with error and write your code here
+  let num = n.toString();
+  let arr = [];
+  for (let i = 0; i < num.length; i++) {
+    let str = '';
+    for (let j = 0; j < num.length; j++) {
+      if (j !== i)
+      str = str + num[j];
+    }
+    arr[i] = +str;
+  }
+  return Math.max(...arr);
 }
 
 module.exports = {
-  getDNSStats
+  deleteDigit
 };
